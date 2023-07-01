@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route, Routes, useNavigate} from "react-router-dom"
+import MainPageComponent from "./components/main-page/main-page.component";
+import ItemPageComponent from "./components/item-page/item-page.component";
+// window.Telegram.WebApp
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Routes>
+            <Route path="/*" index element={<MainPageComponent/>}></Route>
+            <Route path="auth" element={<ItemPageComponent />}></Route>
+        </Routes>
     </div>
   );
 }

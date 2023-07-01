@@ -1,0 +1,36 @@
+.main {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid var(--tg-theme-text-color);
+  border-radius: 7px;
+
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 23px -10px rgba(255, 255, 255, 0.3) inset;
+
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+
+  &_symbol {
+    width: 20%;
+    font-size: 22px;
+    font-weight: bold;
+
+  }
+  &_content {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    &_name {
+      font-size: 11px;
+    }
+    &_price {
+      font-size: 14px;
+    }
+    &_dynamic {
+      font-size: 14px;
+    }
+  }
+}

@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --tg-theme-bg-color: #323238;
+  --tg-theme-text-color: #cecece;
+}
+
+
+/*PAGINATION========================================*/
+.ant-pagination li span,
+.ant-pagination li a {
+  color: var(--tg-theme-text-color)!important;
+}
+.ant-pagination li.ant-pagination-item-active a,
+li .ant-select-selector span{
+  color: var(--tg-theme-bg-color)!important;
+}
+.ant-pagination .ant-pagination-item-active {
+  border-color: transparent!important;
+}
+/*PAGINATION========================================*/
+
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #f9f9fd;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  border-radius: 10px;
+}
