@@ -1,0 +1,45 @@
+name: deploy-prod
+run-name: ${{ github.actor }} is deploy Client to prod
+on:
+  pull_request:
+    branches: [ master ]
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v1
+        name: 'setup node'
+        with:
+          node-version: '18.x'
+
+      - name: 'npm install'
+        run: npm i --force
+
+      - name: 'build react application'
+        run: npm run build
+
+      - name: 'show structure'
+        run: ls -al
+
+      - name: 'deploy build application'
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: '45.90.33.32'
+          username: 'root'
+          password: 'H7shPpQma5*e'
+          port: '22'
+          source: 'build/*'
+          target: '../../var/www/front'
+
+      - name: 'restart nginx server'
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: '45.90.33.32'
+          username: 'root'
+          password: 'H7shPpQma5*e'
+          port: '22'
+          script: |
+            ls -al
+            sudo systemctl reload nginx

@@ -7,7 +7,6 @@ const ItemCoinComponent = (props: CoinInterfaces) => {
         return Number(data).toFixed(3)
     }
 
-
     return (
         <div className={style.main}>
             <div className={style.main_symbol}>{props.symbol}</div>
