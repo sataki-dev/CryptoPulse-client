@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes, useNavigate} from "react-router-dom"
+import {Route, Routes} from "react-router-dom"
 import MainPageComponent from "./components/main-page/main-page.component";
 import ItemPageComponent from "./components/item-page/item-page.component";
 // window.Telegram.WebApp
