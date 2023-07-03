@@ -11,6 +11,8 @@ const MainPageComponent = () => {
     const [coinList, setCoinList] = useState<CoinInterfaces[]>([])
     const [queryParam, setQueryParam] = useState<{limit: number, offset: number, search?: string}>({limit: 30, offset: 0, search: ''})
 
+    const [inputValue, setInputValue] = useState<string>('')
+
     useEffect(() => {
         getAllCoins(queryParam).then(({data}) => {
             setCoinList(data.data)
@@ -20,9 +22,10 @@ const MainPageComponent = () => {
     /**EVENTS====================================================================*/
     const onChangePaginator = (page: number, pageSize: number) => {
         setQueryParam({limit: pageSize, offset: pageSize * (page - 1)})
+        setInputValue('')
     }
 
-    let inputEvent$ = useRef<Observable<Event> | undefined>(undefined)
+    const inputEvent$ = useRef<Observable<Event> | undefined>(undefined)
     const sub = useRef<Subscription | undefined>(undefined)
     useEffect(() => {
         inputEvent$.current = fromEvent(document.querySelector<any>('#inputElement'), 'input')
@@ -52,7 +55,9 @@ const MainPageComponent = () => {
         <div className={style.main}>
 
             <div className={style.main_filter}>
-                <Input placeholder="Поиск монеты..." id='inputElement'/>
+                <Input placeholder="Поиск монеты..." id='inputElement'
+                       onChange={(event) => setInputValue(event.target.value)}
+                       value={inputValue}/>
             </div>
 
             <div className={style.main_list}>
