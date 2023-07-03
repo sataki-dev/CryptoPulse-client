@@ -8,11 +8,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
+
+  &_filter {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
   &_list {
     width: 100%;
-    max-height: calc(100vh - 112px);
+    max-height: calc(100vh - 130px);
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, 150px);
@@ -24,8 +29,8 @@
   &_pagination {
     width: auto;
     display: inline-block;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: auto;
+    margin-bottom: 10px;
   }
 
 }
