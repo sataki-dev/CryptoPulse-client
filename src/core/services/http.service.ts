@@ -4,8 +4,9 @@ import {CoinDataInterfaces} from '../types/defolt-types'
 // import {responseNotificationCreator} from "./error-handler.service"
 
 const axiosInstance = () => {
+    console.log(process.env.REACT_APP_CRYPTO_API)
     const axiosInstanceNew = axios.create({
-        baseURL: `${process.env.REACT_APP_API_URL}`,
+        baseURL: process.env.REACT_APP_CRYPTO_API || 'https://api.coincap.io/v2/',
         timeout: 10000,
         headers: AuthInterceptor()
     });
@@ -42,17 +43,17 @@ function generateRequest() {
 
 export async function getAllCoins(params: Object): Promise<AxiosResponse<CoinDataInterfaces>> {
     return await generateRequest()
-        .get('https://api.coincap.io/v2/assets' + generateQueryParams(params))
+        .get('assets' + generateQueryParams(params))
 }
 
 function generateQueryParams(queryParams: Object): string {
     let index = 0,
         finalQueryParams = ''
     for (let [key, value] of Object.entries(queryParams)) {
-        if (key && (value !== null || true) && index === 0) {
+        if (key && (value !== null && value !== '') && index === 0) {
             finalQueryParams += `?${key}=${value}`
         }
-        if (key && (value !== null || true) && index > 0) {
+        if (key && (value !== null && value !== '') && index > 0) {
             finalQueryParams += `&${key}=${value}`
         }
         index++
