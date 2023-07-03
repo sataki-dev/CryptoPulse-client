@@ -1,10 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
 .main {
   cursor: pointer;
   padding: 10px;
@@ -12,20 +5,11 @@
   border-radius: 7px;
 
   background-color: rgba(255, 255, 255, 0.05);
-  -webkit-box-shadow: 0 0 23px -10px rgba(255, 255, 255, 0.3) inset;
   box-shadow: 0 0 23px -10px rgba(255, 255, 255, 0.3) inset;
 
-  display: -webkit-box;
-
-  display: -ms-flexbox;
-
   display: flex;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: end;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  //align-items: end;
+  //justify-content: space-between;
 
 
   &_symbol {
@@ -37,24 +21,20 @@
   }
   &_content {
     width: 80%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: end;
+
 
     &_name {
+      text-align: end;
       font-size: 11px;
     }
     &_price {
+      text-align: end;
       font-size: 14px;
     }
     &_dynamic {
+      text-align: end;
       font-size: 14px;
     }
   }
