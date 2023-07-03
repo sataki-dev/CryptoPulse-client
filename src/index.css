@@ -39,10 +39,10 @@ li .ant-select-selector span{
 }
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
-  background-color: #f9f9fd;
+  background-color: var(--tg-theme-bg-color);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #b0b0b0;
+  background-color: var(--tg-theme-text-color);
   border-radius: 10px;
 }
