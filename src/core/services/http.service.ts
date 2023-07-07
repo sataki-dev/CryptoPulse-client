@@ -3,28 +3,27 @@ import {AxiosResponse} from "axios";
 import {CoinDataInterfaces} from '../types/defolt-types'
 // import {responseNotificationCreator} from "./error-handler.service"
 
-const axiosInstance = () => {
-    console.log(process.env.REACT_APP_CRYPTO_API)
-    const axiosInstanceNew = axios.create({
-        baseURL: process.env.REACT_APP_CRYPTO_API || 'https://api.coincap.io/v2/',
-        timeout: 10000,
-        headers: AuthInterceptor()
-    });
-    // /*? Request-interceptor----------------*/
-    // axiosInstanceNew.interceptors.request.use(function (config) {
-    //     return config
-    // }, function (error) {
-    //     return Promise.reject(error)
-    // })
-    //
-    // /*? Response-interceptor----------------*/
-    // axiosInstanceNew.interceptors.response.use(function (response) {
-    //     return response
-    // }, function (error) {
-    //     return Promise.reject(error)
-    // })
-    return axiosInstanceNew
-}
+// const axiosInstance = () => {
+//     const axiosInstanceNew = axios.create({
+//         baseURL: process.env.REACT_APP_CRYPTO_API || 'https://api.coincap.io/v2/',
+//         timeout: 10000,
+//         headers: AuthInterceptor()
+//     });
+//     // /*? Request-interceptor----------------*/
+//     // axiosInstanceNew.interceptors.request.use(function (config) {
+//     //     return config
+//     // }, function (error) {
+//     //     return Promise.reject(error)
+//     // })
+//     //
+//     // /*? Response-interceptor----------------*/
+//     // axiosInstanceNew.interceptors.response.use(function (response) {
+//     //     return response
+//     // }, function (error) {
+//     //     return Promise.reject(error)
+//     // })
+//     return axiosInstanceNew
+// }
 
 function AuthInterceptor(): any {
     if (false) {
@@ -36,14 +35,17 @@ function AuthInterceptor(): any {
     }
 }
 
-function generateRequest() {
-    return axiosInstance()
-}
+// function generateRequest() {
+//     return axiosInstance()
+// }
 
 
 export async function getAllCoins(params: Object): Promise<AxiosResponse<CoinDataInterfaces>> {
-    return await generateRequest()
-        .get('assets' + generateQueryParams(params))
+    return await axios.get('https://api.coincap.io/v2/assets' + generateQueryParams(params))
+}
+
+export async function getItemCoinCandles(params: Object): Promise<AxiosResponse<any>> {
+    return await axios.get('http://localhost:8081/get-candles' + generateQueryParams(params))
 }
 
 function generateQueryParams(queryParams: Object): string {
