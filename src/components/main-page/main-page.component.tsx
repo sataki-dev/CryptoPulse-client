@@ -49,7 +49,7 @@ const MainPageComponent = () => {
     const constructCoinsList = coinList.map((coin: CoinInterfaces) => {
         return (
             <div key={coin.rank} className={style.main_list_item}
-                 onClick={() => navigate(`coin/${coin.symbol}`)}>
+                 onClick={() => navigate(`coin/${coin.id}`)}>
                 <ItemCoinComponent {...coin}></ItemCoinComponent>
             </div>
         )

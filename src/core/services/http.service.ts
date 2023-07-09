@@ -40,13 +40,14 @@ function AuthInterceptor(): any {
 // }
 
 
+/**api - https://docs.coincap.io/*/
+
 export async function getAllCoins(params: Object): Promise<AxiosResponse<CoinDataInterfaces>> {
     return await axios.get('https://api.coincap.io/v2/assets' + generateQueryParams(params))
 }
 
-export async function getItemCoinCandles(params: Object): Promise<AxiosResponse<any>> {
-    return await axios.get('http://localhost:8081/get-candles' + generateQueryParams(params))
-}
+
+
 
 function generateQueryParams(queryParams: Object): string {
     let index = 0,
