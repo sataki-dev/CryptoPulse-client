@@ -46,7 +46,10 @@ export async function getAllCoins(params: Object): Promise<AxiosResponse<CoinDat
     return await axios.get('https://api.coincap.io/v2/assets' + generateQueryParams(params))
 }
 
-
+// @ts-ignore
+export async function getCoin(params: string): any {
+    return await axios.get('https://api.coincap.io/v2/assets/' + params)
+}
 
 
 function generateQueryParams(queryParams: Object): string {

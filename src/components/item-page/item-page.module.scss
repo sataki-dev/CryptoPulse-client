@@ -5,6 +5,25 @@
   background-color: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
 
+    .header {
+      display: flex;
+      justify-content: center;
 
+      .headerName {
+        font-size: 20px;
+      }
+
+      .headerIcon {
+        margin-top: 18px;
+        margin-right: 10px;
+      }
+    }
+    .buttonBack {
+      width: 100px;
+      height: 40px;
+      .buttonIcon {
+        font-size: 30px;
+      }
+    }
 
 }
