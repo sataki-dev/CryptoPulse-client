@@ -5,11 +5,13 @@ import ItemPageComponent from "./components/item-page/item-page.component";
 // window.Telegram.WebApp
 
 function App() {
+
+
   return (
     <div className="App">
         <Routes>
             <Route path="/*" index element={<MainPageComponent/>}></Route>
-            <Route path="auth" element={<ItemPageComponent />}></Route>
+            <Route path="coin/:index" element={<ItemPageComponent />}></Route>
         </Routes>
     </div>
   );

@@ -5,8 +5,11 @@ import {CoinInterfaces} from "../../core/types/defolt-types";
 import ItemCoinComponent from "./item-coin/item-coin.component";
 import {Input, Pagination} from 'antd';
 import {debounceTime, fromEvent, map, Observable, Subscription} from "rxjs";
+import {useNavigate} from "react-router-dom";
 
 const MainPageComponent = () => {
+
+    const navigate = useNavigate()
 
     const [coinList, setCoinList] = useState<CoinInterfaces[]>([])
     const [queryParam, setQueryParam] = useState<{limit: number, offset: number, search?: string}>({limit: 30, offset: 0, search: ''})
@@ -45,7 +48,8 @@ const MainPageComponent = () => {
 
     const constructCoinsList = coinList.map((coin: CoinInterfaces) => {
         return (
-            <div key={coin.rank} className={style.main_list_item}>
+            <div key={coin.rank} className={style.main_list_item}
+                 onClick={() => navigate(`coin/${coin.id}`)}>
                 <ItemCoinComponent {...coin}></ItemCoinComponent>
             </div>
         )

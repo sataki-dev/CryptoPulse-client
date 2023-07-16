@@ -32,7 +32,7 @@ li .ant-select-selector span{
 }
 /*PAGINATION========================================*/
 
-
+/*CUSTOM_SCROLL=====================================*/
 ::-webkit-scrollbar {
   width: 9px;
   height: 9px;
@@ -46,3 +46,8 @@ li .ant-select-selector span{
   background-color: var(--tg-theme-text-color);
   border-radius: 10px;
 }
+/*CUSTOM_SCROLL=====================================*/
+
+
+
+
