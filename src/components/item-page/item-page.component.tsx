@@ -28,6 +28,7 @@ const ItemPageComponent = () => {
         <div className={style.main}>
             <Button  type="text" className={style.buttonBack} onClick={() => navigate(`/*`)}>
                 <AiOutlineArrowLeft className={style.buttonIcon}></AiOutlineArrowLeft>
+                <div className={style.buttonText}>Вернуться на главную</div>
             </Button>
             {
                 coin &&
@@ -39,30 +40,17 @@ const ItemPageComponent = () => {
                     <p className={style.headerName}>{coin.name}</p>
                 </div>
             }
-
             {
-                coin && <p>Цена : ${formatMoney(coin.priceUsd)}</p>
+                coin &&
+                <>
+                    <p>Цена : <b>${formatMoney(coin.priceUsd)}</b></p>
+                    <p>Изменение направления за 24 часа : <b>{formatMoney(coin.changePercent24Hr)}%</b></p>
+                    <p>Рыночная капитализация : <b>${formatMoney(coin.marketCapUsd)}</b></p>
+                    <p>Объем торгов (24ч) : <b>${formatMoney(coin.volumeUsd24Hr)}</b></p>
+                    <p>Доступное предложение : <b>{formatMoney(coin.supply)} {coin.symbol}</b></p>
+                    <p>Количество выпущенных активов : <b>{formatMoney(coin.maxSupply)}</b></p>
+                </>
             }
-
-            {
-                coin && <p>Изменение направления за 24 часа : {formatMoney(coin.changePercent24Hr)}%</p>
-            }
-
-            {
-                coin && <p>Рыночная капитализация : ${formatMoney(coin.marketCapUsd)}</p>
-            }
-            {
-                coin && <p>Объем торгов (24ч) : ${formatMoney(coin.volumeUsd24Hr)}</p>
-            }
-
-            {
-                coin && <p>Доступное предложение : {formatMoney(coin.supply)} {coin.symbol}</p>
-            }
-
-            {
-                coin && <p>Количество выпущенных активов : {formatMoney(coin.maxSupply)}</p>
-            }
-
         </div>
     )
 
